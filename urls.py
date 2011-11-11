@@ -12,8 +12,8 @@ sitemaps = {
 
 urlpatterns = patterns('',
     #(r'^$', direct_to_template, {'template':'base.html'}),
-    (r'^blog/', include('fblog.urls')),
     (r'^', include('fprice.urls')),
+    (r'^blog/', include('fblog.urls')),
 
     (r'^accounts/', include('registration.urls')),
 

@@ -125,13 +125,18 @@ INSTALLED_APPS = (
     'south',
 
     # project apps
+    'fprice',
     'fstyle',
     'fblog',
-    'fprice',
 
     # 3rd party apps
     #'taggit',
+    'seo',
 )
+
+SEO_FOR_MODELS = [
+    'django.contrib.flatpages.models.FlatPage',
+]
 
 THUMBNAIL_QUALITY = 95
 
