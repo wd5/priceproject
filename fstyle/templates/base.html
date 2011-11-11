@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+
+<title>{% block title %}Site title{% endblock %}</title>
+
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="description" content="{% block description %}{% endblock %}"/>
+<meta name="keywords" content="{% block keywords %}{% endblock %}" />
+
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/base.css" />
+{% endblock %}
+
+</head>
+<body>
+
+<div id="header">
+{% block header %}
+<div id="sitetitle"><a href="/">PriceSpeak</a> development</div>
+<div id="siteslogan">Good things come to those who wait</div>
+<div id="sitemenu">
+    <ul>
+    <li><a href="/">Цены</a></li>
+    <li><a href="/blog/">Дневник</a></li>
+    <li><a href="/about/">О нас</a></li>
+    </ul>
+</div>
+{% endblock %}
+<div class="clearfix"></div>
+</div><!-- /#header -->
+
+<div id="navline">
+<div class="infobar rounded" >
+    <div id="profile">
+        {% if not user.is_authenticated %}<a href="{% url auth_login %}?next={{ request.path }}">Войти</a>{% endif %}
+        {% if user.is_staff %}<a href="{% url admin:index %}">Админка</a>{% endif %}
+        {% if user.is_authenticated %}<a href="{% url auth_logout %}?next={{ request.path }}">Выход</a> ({{ user.username }})</a>{% endif %}
+    </div>
+    <div id="breadcrumbs"><a href="/">Главная</a>{% block breadcrumbs %} - Добро пожаловать!{% endblock %}</div>
+<div class="clearfix"></div>
+</div><!-- /.infobar -->
+</div><!-- /#navline -->
+
+<div id="main">
+{% block main %}
+
+<div id="content" class="{% block contentclass %}{% endblock %} rounded">
+{% block content %}{% endblock %}
+</div><!-- /#content -->
+
+<div id="sidebar" class="rounded">
+{% block sidebar %}{% endblock %}
+</div><!-- /#sidebar -->
+
+{% endblock %}
+<div class="clearfix"></div>
+</div><!-- /#main div -->
+
+<div id="footer">
+<div class="infobar rounded">
+{% block footer %}
+    <div id="copyright">(c) fstudio</div>
+    <div id="author">Falk</div>
+{% endblock %}
+<div class="clearfix"></div>
+</div><!-- /.infobar -->
+</div><!-- /#footer -->
+
+</body>
+</html>

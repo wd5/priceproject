@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load markup %}
+
+{% block title %}{{ flatpage.title }} | {{ block.super }}{% endblock %}
+
+{% block breadcrumbs %} - Страница - {{ flatpage.title }}{% endblock %}
+
+{% block contentclass %}flatpage{% endblock %}
+
+{% block content %}
+<h1>{{ flatpage.title }}</h1>
+
+<div id="page-content">{{ flatpage.content }}</div>
+{% endblock %}

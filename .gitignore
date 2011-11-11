@@ -1,0 +1,11 @@
+*.pyc
+*.pyo
+
+.directory
+password.py
+test.db
+secret.txt
+
+django
+south
+registration
