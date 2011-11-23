@@ -4,6 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from django.views.generic.simple import direct_to_template
+from django.conf import settings
 from fblog.sitemap import BlogSitemap
 
 sitemaps = {
