@@ -21,6 +21,8 @@ urlpatterns = patterns('',
     (r'^comments/', include('django.contrib.comments.urls')),
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls)),
+
+    (r'^yandex_417e26a084231734.txt $', 'django.views.static.serve', {'path':"/yandex_417e26a084231734.txt ",'document_root': settings.STATIC_ROOT,'show_indexes': False }),
 )
 
 # routing static files
