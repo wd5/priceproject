@@ -8,9 +8,15 @@ from django.contrib import admin
 admin.autodiscover()
 
 from fblog.sitemap import BlogSitemap
+from django.contrib.sitemaps import FlatPageSitemap
+
+class MyFlatPageSitemap(FlatPageSitemap):
+    def priority(self, item):
+        return 0.5
 
 sitemaps = {
     'blog': BlogSitemap,
+    'pages': MyFlatPageSitemap,
 }
 
 urlpatterns = patterns('',
