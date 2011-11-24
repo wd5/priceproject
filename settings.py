@@ -138,6 +138,8 @@ SEO_FOR_MODELS = [
     'django.contrib.flatpages.models.FlatPage',
 ]
 
+FPRICE_USE_ROOT_URL = False
+
 THUMBNAIL_QUALITY = 95
 
 # SECRET_KEY
