@@ -130,7 +130,7 @@ INSTALLED_APPS = (
     'fblog',
 
     # 3rd party apps
-    #'taggit',
+    'taggit',
     'mptt',
     'seo',
 )
