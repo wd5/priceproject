@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
+
 from django.conf.urls.defaults import *
+from django.conf import settings
+from django.views.generic.simple import direct_to_template
 
 from django.contrib import admin
 admin.autodiscover()
 
-from django.views.generic.simple import direct_to_template
-from django.conf import settings
 from fblog.sitemap import BlogSitemap
 
 sitemaps = {
@@ -23,11 +25,10 @@ urlpatterns = patterns('',
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls)),
 
-    (r'^yandex_417e26a084231734.txt$', 'django.views.static.serve', {'path':"/yandex_417e26a084231734.txt ",'document_root': settings.STATIC_ROOT,'show_indexes': False }),
+    (r'^yandex_417e26a084231734.html$', 'django.views.static.serve', {'path':"/yandex_master.html",'document_root': settings.STATIC_ROOT,'show_indexes': False}),
 )
 
 # routing static files
-from django.conf import settings
 if settings.LOCALSERVER:
     urlpatterns+= patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
