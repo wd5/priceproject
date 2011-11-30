@@ -131,6 +131,7 @@ INSTALLED_APPS = (
 
     # 3rd party apps
     'taggit',
+    'favorites',
     'mptt',
     'seo',
 )

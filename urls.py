@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     (r'^blog/', include('fblog.urls')),
 
     (r'^accounts/', include('registration.urls')),
+    (r'^favorites/', include('favorites.urls', app_name='favorites', namespace="favorites")),
 
     (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     (r'^comments/', include('django.contrib.comments.urls')),
