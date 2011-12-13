@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'staticfiles',
     'registration',
+    'profiles',
     'south',
 
     # project apps
@@ -141,6 +142,8 @@ SEO_FOR_MODELS = [
 ]
 
 FPRICE_USE_ROOT_URL = False
+
+AUTH_PROFILE_MODULE = 'fprice.UserProfile'
 
 THUMBNAIL_QUALITY = 95
 
