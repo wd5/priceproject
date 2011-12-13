@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Редактирование профиля | Цены говорят{% endblock %}
+
+{% block breadcrumbs %} - <a href="{% url profiles_profile_list %}">Пользователи</a> - <a href="{% url profiles_profile_detail profile.user %}">Профиль {{ profile.user }}</a> - Редактирование{% endblock %}
+
+{% block content %}
+<h1>Редактирование профиля {{ user }} </h1>
+ 
+<form method="POST" action="">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="submit" value="Сохранить" id="submit">
+</form>
+ 
+{% endblock content %}

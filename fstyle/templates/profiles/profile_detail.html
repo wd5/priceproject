@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Профиль {{ profile.user }} | Цены говорят{% endblock %}
+
+{% block breadcrumbs %} - <a href="{% url profiles_profile_list %}">Пользователи</a> - Профиль {{ profile.user }}{% endblock %}
+
+{% block content %}
+<h1>Просмотр профиля {{ profile.user }} </h1>
+ 
+<p><strong>Город:</strong><br>
+{{ profile.city }}
+</p>
+
+{% if request.user == profile.user %}<p><a href="{% url profiles_edit_profile %}">Редактировать профиль</a></p>{% endif %}
+ 
+{% endblock content %}
