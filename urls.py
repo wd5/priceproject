@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from django.conf.urls.defaults import *
+from django.conf.urls.defaults import patterns, include, url
 from django.conf import settings
 from django.views.generic.simple import direct_to_template
 
 from django.contrib import admin
 admin.autodiscover()
 
-from fblog.sitemap import BlogSitemap
+#from fblog.sitemap import BlogSitemap
 from django.contrib.sitemaps import FlatPageSitemap
 
 class MyFlatPageSitemap(FlatPageSitemap):
@@ -15,18 +15,18 @@ class MyFlatPageSitemap(FlatPageSitemap):
         return 0.5
 
 sitemaps = {
-    'blog': BlogSitemap,
+    #'blog': BlogSitemap,
     'pages': MyFlatPageSitemap,
 }
 
 urlpatterns = patterns('',
     #(r'^$', direct_to_template, {'template':'base.html'}),
     (r'^', include('fprice.urls')),
-    (r'^blog/', include('fblog.urls')),
+    #(r'^blog/', include('fblog.urls')),
 
     (r'^accounts/', include('registration.urls')),
-    (r'^profiles/', include('profiles.urls')),
-    (r'^favorites/', include('favorites.urls', app_name='favorites', namespace="favorites")),
+    #(r'^profiles/', include('profiles.urls')),
+    #(r'^favorites/', include('favorites.urls', app_name='favorites', namespace="favorites")),
 
     (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     (r'^comments/', include('django.contrib.comments.urls')),
@@ -40,5 +40,4 @@ urlpatterns = patterns('',
 if settings.LOCALSERVER:
     urlpatterns+= patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
     )

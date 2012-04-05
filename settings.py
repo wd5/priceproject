@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# Django settings for default project.
+
+# Django 1.3 required
 
 import os
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__)) 
@@ -10,16 +11,17 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-#        'NAME': 'test.db',                      # Or path to database file if using sqlite3.
-#        'USER': '',                      # Not used with sqlite3.
-#        'PASSWORD': '',                  # Not used with sqlite3.
-#        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-#        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-#    }
-#}
+# DB sets via local_settings.py or password.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'test.db',                      # Or path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    }
+}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -32,7 +34,7 @@ TIME_ZONE = 'Europe/Moscow'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'ru'
 
 SITE_ID = 1
 
@@ -62,8 +64,8 @@ STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 STATICFILES_FINDERS = (
-    'staticfiles.finders.FileSystemFinder',
-    'staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
 # List of callables that know how to import templates from various sources.
@@ -74,14 +76,14 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.request',
     'django.core.context_processors.media',
     'django.core.context_processors.csrf',
     'django.core.context_processors.i18n',
     'django.core.context_processors.debug',
-    'staticfiles.context_processors.static',
+    'django.core.context_processors.static',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -93,7 +95,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
 )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'app.urls'
 
 LOGIN_REDIRECT_URL = '/'
 
@@ -112,6 +114,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.contenttypes',
+    'django.contrib.staticfiles',
 
     # project core required
     'django.contrib.sitemaps',
@@ -119,21 +122,21 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.markup',
     'django.contrib.humanize',
-    'django.contrib.flatpages',
-    'staticfiles',
-    'registration',
-    'profiles',
+
     'south',
 
     # project apps
+    'registration',
+    'django.contrib.flatpages',
+    'mptt',
     'fprice',
     'fstyle',
-    'fblog',
+    #'profiles',
+    #'fblog',
 
     # 3rd party apps
-    'taggit',
-    'favorites',
-    'mptt',
+    #'taggit',
+    #'favorites',
     'seo',
 )
 
@@ -141,9 +144,9 @@ SEO_FOR_MODELS = [
     'django.contrib.flatpages.models.FlatPage',
 ]
 
-FPRICE_USE_ROOT_URL = False
+#FPRICE_USE_ROOT_URL = False
 
-AUTH_PROFILE_MODULE = 'fprice.UserProfile'
+#AUTH_PROFILE_MODULE = 'fprice.UserProfile'
 
 THUMBNAIL_QUALITY = 95
 

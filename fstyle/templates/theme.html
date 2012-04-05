@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>{% block title %}{% endblock %}</title>
+
+<meta charset="UTF-8">
+
+<meta name="description" content="{% block description %}{% endblock %}" />
+<meta name="keywords" content="{% block keywords %}{% endblock %}" />
+
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" media="all" />     
+
+{% block extra_head %}{% endblock %}
+
+</head>
+<body>
+
+<div id="header">
+{% block header %}{% endblock %}
+</div>
+
+<div id="navigation">
+{% block navigation %}{% endblock %}
+</div>
+
+<div id="mainbar">
+{% block mainbar %}{% endblock %}
+</div>
+
+<div id="content">
+<div id="breadcrumbs">
+{% block breadcrumbs %}{% endblock %}
+</div>
+{% block content %}{% endblock %}
+</div>
+
+<div id="sidebar">
+{% block sidebar %}{% endblock %}
+</div>
+
+<div id="footer">
+{% block footer %}{% endblock %}
+</div>
+
+{% block extra_body %}{% endblock %}
+
+</body>
+</html>

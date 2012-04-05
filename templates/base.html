@@ -1,0 +1,37 @@
+{% extends 'theme.html' %}
+
+{% block title %}Цены говорят{% endblock %}
+
+{% block header %}
+<div id="usermenu">
+<ul>
+<li><a href="{% url admin:index %}">Админка</a></li>
+</ul>
+</div>
+
+<div id="sitetitle">Цены говорят</div>
+<div id="siteslogan">Динамика и рост цен в прямом эфире</div>
+
+{% endblock %}
+
+{% block navigation %}
+<ul>
+<li><a href="/">Главная</a></li>
+</ul>
+{% endblock %}
+
+{% block mainbar %}<h2>Каталог</h2>{% endblock %}
+
+{% block breadcrumbs %}<a href="/">Главная</a> - Добро пожаловать!{% endblock %}
+
+{% block content %}
+
+<h1>Добро пожаловать!</h1>
+
+<p>Текст</p>
+
+{% endblock %}
+
+{% block sidebar %}<h2>Ссылки</h2>{% endblock %}
+
+{% block footer %}<i>Ссылки и копирайт</i>{% endblock %}
