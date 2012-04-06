@@ -20,8 +20,8 @@ sitemaps = {
 }
 
 urlpatterns = patterns('',
-    #(r'^$', direct_to_template, {'template':'base.html'}),
-    (r'^', include('fprice.urls')),
+    (r'^$', direct_to_template, {'template':'fprice/home.html'}, 'home'),
+    (r'^list/', include('fprice.urls')),
     #(r'^blog/', include('fblog.urls')),
 
     (r'^accounts/', include('registration.urls')),

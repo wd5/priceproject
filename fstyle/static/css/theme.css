@@ -1,0 +1,172 @@
+
+/* ========================= LAYOUT ========================== */
+
+body {
+    font-family: Ubuntu, Verdana, sans-serif;
+    font-size: 11px;
+    background: #ccc;
+    color: #555;
+    margin: 0px auto;
+    width: 960px;
+}
+
+/* TODO: make wrapper */
+
+.clearfix {
+    clear: both;
+}
+
+.rounded {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
+#header {
+    padding: 10px;
+}
+
+#sitetitle {
+    font-size: 300%;
+}
+
+#siteslogan {
+    font-family: Georgia;
+    font-size: 150%;
+    font-style: italic;
+}
+
+#usermenu {
+    float: right;
+    padding-top: 10px;
+}
+
+#usermenu ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+#usermenu ul li {
+    display: inline;
+    margin-left: 2px;
+}
+
+#navigation {
+    font-size: 125%;
+    background: #bbb;
+    padding: 7px 10px 7px;
+    margin-bottom: 4px;
+}
+
+#navigation ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+#navigation ul li {
+    display: inline;
+    margin-right: 8px;
+}
+
+#navigation ul li a, #navigation ul li a:visited {
+
+}
+
+#breadcrumbs {
+    margin-bottom: 10px;
+}
+
+#mainbar {
+    background: #ddd;
+    width: 144px;
+    float: left;
+    margin-right: 4px;
+    padding: 10px;
+}
+
+#content {
+    background: #ddd;
+    width: 604px;
+    float: left;
+    margin-right: 4px;
+    padding: 10px;
+}
+
+#sidebar {
+    background: #ddd;
+    width: 144px;
+    float: left;
+    padding: 10px;
+}
+
+#footer {
+    clear: both;
+    padding: 10px;
+    margin-top: 4px;
+    background: #bbb;
+}
+
+/* =========================== DEFAULT ========================== */
+
+a, a:active, a:visited {
+    color: #a52919;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 175%;
+    color: #a52919;
+    margin: 2px 0 10px 0;
+    padding: 0;
+}
+h2 {
+    font-size: 150%;
+    color: #773333;
+    margin: 3px 0;
+    padding: 0;
+}
+h3 {
+    font-size: 125%;
+    color: #555555;
+    margin: 2px 0;
+    padding: 0;
+}
+
+h4 {
+    font-size: 115%;
+    color: #555555;
+    margin: 2px 0;
+    padding: 0;
+}
+
+h5 {
+    font-size: 100%;
+    color: #555555;
+    margin: 2px 0;
+    padding: 0;
+}
+
+/* =========================== SIDEBAR ========================== */
+
+#sidebar > ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#sidebar > ul > li {
+    margin-bottom: 8px;
+}
+
+#sidebar ul li ul {
+    list-style-type: disc;
+    margin-left: 15px;
+    padding: 0px;
+}

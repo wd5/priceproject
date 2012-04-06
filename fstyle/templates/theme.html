@@ -9,6 +9,7 @@
 <meta name="description" content="{% block description %}{% endblock %}" />
 <meta name="keywords" content="{% block keywords %}{% endblock %}" />
 
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/theme.css" media="all" />     
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" media="all" />     
 
 {% block extra_head %}{% endblock %}
@@ -17,7 +18,15 @@
 <body>
 
 <div id="header">
-{% block header %}{% endblock %}
+{% block header %}
+<div id="usermenu">
+{% block usermenu %}
+{% endblock %}
+</div>
+
+<div id="sitetitle">{% block sitetitle %}{% endblock %}</div>
+<div id="siteslogan">{% block siteslogan %}{% endblock %}</div>
+{% endblock %}
 </div>
 
 <div id="navigation">

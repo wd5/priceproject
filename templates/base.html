@@ -2,36 +2,33 @@
 
 {% block title %}Цены говорят{% endblock %}
 
-{% block header %}
-<div id="usermenu">
+{% block usermenu %}
 <ul>
-<li><a href="{% url admin:index %}">Админка</a></li>
+{% if request.user.is_authenticated %}
+<li><b>{{ request.user }}</b></li>
+{% if request.user.is_staff %}<li><a href="{% url admin:index %}">Админка</a></li>{% endif %}
+<li><a href="{% url auth_logout %}">Выход</a></li>
+{% else %}
+<li><a href="{% url auth_login %}">Вход</a></li>
+<li><a href="{% url registration_register %}">Регистрация</a></li>
+{% endif %}
 </ul>
-</div>
-
-<div id="sitetitle">Цены говорят</div>
-<div id="siteslogan">Динамика и рост цен в прямом эфире</div>
-
 {% endblock %}
+
+{% block sitetitle %}<a href="{% url home %}">Цены говорят</a>{% endblock %}
+{% block siteslogan %}Динамика и рост цен в прямом эфире{% endblock %}
 
 {% block navigation %}
 <ul>
-<li><a href="/">Главная</a></li>
+<li><a href="{% url home %}">Главная</a></li>
+<li><a href="{% url price_index %}">Цены</a>
 </ul>
 {% endblock %}
 
-{% block mainbar %}<h2>Каталог</h2>{% endblock %}
-
-{% block breadcrumbs %}<a href="/">Главная</a> - Добро пожаловать!{% endblock %}
+{% block breadcrumbs %}<a href="{% url home %}">Главная</a>{% endblock %}
 
 {% block content %}
 
-<h1>Добро пожаловать!</h1>
-
-<p>Текст</p>
-
 {% endblock %}
-
-{% block sidebar %}<h2>Ссылки</h2>{% endblock %}
 
 {% block footer %}<i>Ссылки и копирайт</i>{% endblock %}

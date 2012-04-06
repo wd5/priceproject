@@ -1,0 +1,12 @@
+/* =========================== MAINBAR ========================== */
+
+#mainbar .product-cat {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#mainbar .product-cat ul {
+    margin-left: 14px;
+    padding: 0px;
+}
