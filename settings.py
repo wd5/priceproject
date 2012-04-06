@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     'registration',
     'django.contrib.flatpages',
     'mptt',
+    'fmenu',
     'fprice',
     'fstyle',
     #'profiles',
