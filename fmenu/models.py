@@ -3,6 +3,7 @@ from mptt.models import MPTTModel, TreeForeignKey
 
 
 class Menu(MPTTModel):
+    active = models.BooleanField(default=True)
     title = models.CharField(max_length=200)
     url = models.CharField(max_length=50)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children')
