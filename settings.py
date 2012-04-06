@@ -23,6 +23,23 @@ DATABASES = {
     }
 }
 
+# SECRET_KEY
+if not hasattr(globals(), 'SECRET_KEY'):
+    SECRET_FILE = os.path.join(PROJECT_DIR, 'secret.txt')
+    try:
+        SECRET_KEY = open(SECRET_FILE).read().strip()
+    except IOError:
+        try:
+            from random import choice
+            import string
+            symbols = ''.join((string.lowercase, string.digits, string.punctuation ))
+            SECRET_KEY = ''.join([choice(symbols) for i in range(50)])
+            secret = file(SECRET_FILE, 'w')
+            secret.write(SECRET_KEY)
+            secret.close()
+        except IOError:
+            raise Exception('Please create a %s file with random characters to generate your secret key!' % SECRET_FILE)
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -75,6 +92,13 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_DIR, 'templates/'),
+)
+
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
@@ -84,6 +108,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.debug',
     'django.core.context_processors.static',
+    'fprice.context_processors.settings',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -96,15 +121,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'app.urls'
-
-LOGIN_REDIRECT_URL = '/'
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_DIR, 'templates/'),
-)
 
 INSTALLED_APPS = (
     # django core required
@@ -145,31 +161,15 @@ SEO_FOR_MODELS = [
     'django.contrib.flatpages.models.FlatPage',
 ]
 
-#FPRICE_USE_ROOT_URL = False
-
-#AUTH_PROFILE_MODULE = 'fprice.UserProfile'
-
-THUMBNAIL_QUALITY = 95
-
-# SECRET_KEY
-if not hasattr(globals(), 'SECRET_KEY'):
-    SECRET_FILE = os.path.join(PROJECT_DIR, 'secret.txt')
-    try:
-        SECRET_KEY = open(SECRET_FILE).read().strip()
-    except IOError:
-        try:
-            from random import choice
-            import string
-            symbols = ''.join((string.lowercase, string.digits, string.punctuation ))
-            SECRET_KEY = ''.join([choice(symbols) for i in range(50)])
-            secret = file(SECRET_FILE, 'w')
-            secret.write(SECRET_KEY)
-            secret.close()
-        except IOError:
-            raise Exception('Please create a %s file with random characters to generate your secret key!' % SECRET_FILE)
+LOGIN_REDIRECT_URL = '/'
 
 # REGISTRATION SETTINGS
 ACCOUNT_ACTIVATION_DAYS = 2
+
+#AUTH_PROFILE_MODULE = 'fprice.UserProfile'
+
+# THUMBNAILS
+THUMBNAIL_QUALITY = 95
 
 # LOCAL SETTINGS
 import socket
