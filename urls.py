@@ -20,7 +20,8 @@ sitemaps = {
 }
 
 urlpatterns = patterns('',
-    (r'^$', direct_to_template, {'template':'fprice/home.html'}, 'home'),
+    #(r'^$', direct_to_template, {'template':'fprice/home.html'}, 'home'),
+    url("^$", "django.contrib.flatpages.views.flatpage", {"url": "/"}, name="home"),
     (r'^list/', include('fprice.urls')),
     #(r'^blog/', include('fblog.urls')),
 
