@@ -22,7 +22,6 @@ sitemaps = {
 urlpatterns = patterns('',
     #(r'^$', direct_to_template, {'template':'fprice/home.html'}, 'home'),
     url("^$", "django.contrib.flatpages.views.flatpage", {"url": "/"}, name="home"),
-    (r'^list/', include('fprice.urls')),
     #(r'^blog/', include('fblog.urls')),
 
     (r'^accounts/', include('registration.urls')),
@@ -35,6 +34,8 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
 
     (r'^yandex_417e26a084231734.html$', 'django.views.static.serve', {'path':"/yandex_master.html",'document_root': settings.STATIC_ROOT,'show_indexes': False}),
+
+    (r'^', include('fprice.urls')), # sad / but true
 )
 
 # routing static files
