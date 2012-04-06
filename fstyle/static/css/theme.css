@@ -38,7 +38,7 @@ body {
 
 #usermenu {
     float: right;
-    padding-top: 10px;
+    padding-top: 14px;
 }
 
 #usermenu ul {
@@ -57,6 +57,7 @@ body {
     background: #bbb;
     padding: 7px 10px 7px;
     margin-bottom: 4px;
+    text-align: center;
 }
 
 #navigation ul {
