@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Ошибка 500 | {{ block.super }}{% endblock %}
+
+{% block breadcrumbs %} - Ошибка{% endblock %}
+
+{% block contentclass %}error{% endblock %}
+
+{% block content %}
+
+<h2>Внутренняя ошибка</h2>
+
+<p>Попробуйте обновить страницу через некоторое время.</p>
+
+{% endblock %}

@@ -178,7 +178,7 @@ FPRICE_USE_ROOT_URL = False
 # LOCAL SETTINGS
 import socket
 if socket.gethostname() == 'hydrogen':
-    DEBUG = True
+    DEBUG = False
     from password import *
     LOCALSERVER = False
 else:
