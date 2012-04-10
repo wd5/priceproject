@@ -118,6 +118,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'app.urls'
@@ -140,6 +141,7 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
 
     'south',
+    'debug_toolbar',
 
     # project apps
     'registration',
@@ -156,6 +158,12 @@ INSTALLED_APPS = (
     #'favorites',
     'seo',
 )
+
+INTERNAL_IPS = ('127.0.0.1',)
+
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+}
 
 SEO_FOR_MODELS = [
     'django.contrib.flatpages.models.FlatPage',
