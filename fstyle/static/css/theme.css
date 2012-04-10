@@ -24,6 +24,7 @@ body {
 
 #header {
     padding: 10px;
+    position: relative;
 }
 
 #sitetitle {
@@ -39,6 +40,14 @@ body {
 #usermenu {
     float: right;
     padding-top: 14px;
+}
+
+#search {
+    float: right;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 4px;
 }
 
 #usermenu ul {

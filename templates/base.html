@@ -17,6 +17,10 @@
 </ul>
 {% endblock %}
 
+{% block search %}
+<form action="/search/" method="GET"><input style="background: #bbb; margin:0px; padding:0px; width:160px; height:1.1em" type="text" name="q"><input style="height:25px; margin:0px; padding:0px;" type="submit" value="Поиск"></form>
+{% endblock %}
+
 {% block sitetitle %}<a href="{% url home %}">Цены говорят</a>{% endblock %}
 {% block siteslogan %}Динамика и рост цен в прямом эфире{% endblock %}
 
