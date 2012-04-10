@@ -7,17 +7,7 @@ from django.views.generic.simple import direct_to_template
 from django.contrib import admin
 admin.autodiscover()
 
-#from fblog.sitemap import BlogSitemap
-from django.contrib.sitemaps import FlatPageSitemap
-
-class MyFlatPageSitemap(FlatPageSitemap):
-    def priority(self, item):
-        return 0.5
-
-sitemaps = {
-    #'blog': BlogSitemap,
-    'pages': MyFlatPageSitemap,
-}
+from app.sitemaps import sitemaps
 
 urlpatterns = patterns('',
     #(r'^$', direct_to_template, {'template':'fprice/home.html'}, 'home'),
