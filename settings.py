@@ -6,8 +6,10 @@ import os
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__)) 
 PROJECT_DIRNAME = PROJECT_DIR.split(os.sep)[-1]
 
+DEBUG = False
+
 ADMINS = (
-    ('Admin', 'admin@pricespeak.com'),
+    #('Admin', 'admin@example.com'),
 )
 
 MANAGERS = ADMINS
@@ -15,8 +17,8 @@ MANAGERS = ADMINS
 # DB sets via local_settings.py or password.py
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'test.db',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -185,13 +187,13 @@ FPRICE_SHOW_PRICE_BREADCRUMB = False
 FPRICE_USE_ROOT_URL = False
 
 # LOCAL SETTINGS
-import socket
-if socket.gethostname() == 'hydrogen':
-    DEBUG = False
-    from password import *
-    LOCALSERVER = False
-else:
-    DEBUG = True
+try:
     from local_settings import *
+except ImportError:
+    pass
 
-TEMPLATE_DEBUG = DEBUG
+try:
+    from password import *
+except ImportError:
+    pass
+

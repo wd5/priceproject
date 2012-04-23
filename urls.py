@@ -27,7 +27,7 @@ urlpatterns = patterns('',
 )
 
 # routing media files
-if settings.LOCALSERVER:
+if settings.DEBUG:
     urlpatterns+= patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
     )

@@ -1,4 +1,8 @@
-LOCALSERVER = True
+DEBUG = True
+
+ADMINS = (
+    ('Admin', 'admin@example.com'),
+)
 
 DATABASES = {
     'default': {
