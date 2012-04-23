@@ -7,7 +7,7 @@ from django.views.generic.simple import direct_to_template
 from django.contrib import admin
 admin.autodiscover()
 
-from app.sitemaps import sitemaps
+from sitemaps import sitemaps
 
 urlpatterns = patterns('',
     #(r'^$', direct_to_template, {'template':'fprice/home.html'}, 'home'),

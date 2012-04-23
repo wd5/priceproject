@@ -4,6 +4,7 @@
 
 import os
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__)) 
+PROJECT_DIRNAME = PROJECT_DIR.split(os.sep)[-1]
 
 ADMINS = (
     ('Admin', 'admin@pricespeak.com'),
@@ -121,7 +122,7 @@ MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
-ROOT_URLCONF = 'app.urls'
+ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
 
 INSTALLED_APPS = (
     # django core required
