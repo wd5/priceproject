@@ -30,7 +30,7 @@
 
 <h2>Популярные продукты</h2>
 <div id="product-featured-list">
-<ul>{% get_featured fprice.Product 15 as featured_list %}
+<ul>{% get_featured fprice.Product 99 as featured_list %}
 {% for item in featured_list %}
 <li><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>
 {% endfor %}
